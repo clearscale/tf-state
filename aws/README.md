@@ -1,3 +1,3 @@
 # AWS
 
-This directory contains all supported AWS backends.
+This directory contains the code for all supported AWS backends.
