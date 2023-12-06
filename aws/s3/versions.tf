@@ -13,19 +13,3 @@ terraform {
     }
   }
 }
-
-#
-# Current AWS context from the primary provider
-#
-data "aws_caller_identity" "current" {}
-
-#
-# Current AWS Account's canonical user ID
-# https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-identifiers.html#FindCanonicalId
-#
-data "aws_canonical_user_id" "current" {}
-
-#
-# Current AWS region
-#
-data "aws_region" "current" {}
