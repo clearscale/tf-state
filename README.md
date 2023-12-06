@@ -14,7 +14,7 @@ module "s3_backend" {
 
   prefix   = "ex"
   client   = "example"
-  project  = "git"
+  project  = "aws"
   env      = "dev"
   region   = "us-east-1"
   name     = "helloworld"
