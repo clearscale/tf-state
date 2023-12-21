@@ -48,3 +48,15 @@ variable "name" {
   description = "The name of the S3 state."
   default     = "default"
 }
+
+variable "read_capacity" {
+  type        = number
+  description = "Number of read units for DynamoDB table."
+  default     = 5
+}
+
+variable "write_capacity" {
+  type        = number
+  description = "Number of write units for DynamoDB table."
+  default     = 5
+}
