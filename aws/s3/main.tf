@@ -46,6 +46,11 @@ module "s3_bucket" {
     }
   }
 
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+
   # Allow deletion of non-empty bucket
   # force_destroy = true
 }
@@ -56,8 +61,8 @@ module "s3_bucket" {
 #
 resource "aws_dynamodb_table" "this" {
   name           = local.bucket_name
-  read_capacity  = 1
-  write_capacity = 1
+  read_capacity  = var.read_capacity
+  write_capacity = var.write_capacity
   hash_key       = "LockID"
 
   attribute {
