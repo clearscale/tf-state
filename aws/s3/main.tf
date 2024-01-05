@@ -1,23 +1,9 @@
-#
-# Import standardization module
-#
-module "context" {
-  source    = "../../../tf-context"
-  providers = { aws = aws }
-
-  prefix   = var.prefix
-  client   = var.client
-  project  = var.project
-  accounts = [var.account]
-  env      = var.env
-  region   = var.region
-  name     = "tfstate"
-  function = var.name
-}
-
 locals {
-  context     = jsondecode(jsonencode(module.context.accounts))
-  bucket_name = local.context.aws[0].prefix.dash.full.default.function
+  # context     = jsondecode(jsonencode(module.context.accounts))
+  # bucket_name = local.context.aws[0].prefix.dash.full.default.function
+
+  # bucket_name = format("%s-%s",var.prefix,var.client,var.env)
+  bucket_name = join("-", [var.prefix, var.client, var.project, var.name, var.env, var.region])
 }
 
 #
