@@ -1,6 +1,6 @@
 module "aws_s3" {
   source    = "./aws/s3"
-  providers = { aws = aws }
+  # providers = { aws = aws }
 
   count = length([
     for a in try(var.accounts, []) : a
